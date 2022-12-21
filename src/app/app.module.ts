@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { MainComponent } from './main/main.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { SearchComponent } from './search/search.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,12 +15,13 @@ import { SearchComponent } from './search/search.component';
     NavComponent,
     MainComponent,
     SidebarComponent,
-    SearchComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

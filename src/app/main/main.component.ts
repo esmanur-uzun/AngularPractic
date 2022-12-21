@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Comments } from '../models/commenst';
 
 @Component({
   selector: 'app-main',
@@ -7,8 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
 
+  commentAddForm: FormGroup
+  comments:Comments = new Comments
+  createCommentAddForm(){
+    this.commentAddForm = this.formBuilder.group({
+      comment:["", Validators.required]
+    })
+  }
+
+  add(){
+    if(this.commentAddForm.valid){
+      this.comments = Object.assign({},this.commentAddForm.value)
+    }
+  } 
+  
   ngOnInit(): void {
   }
 
